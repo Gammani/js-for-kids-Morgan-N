@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Hello from "./lessons/Hello";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    let [words, setWords] = useState<string | null>("Hello World!");
+
+
+    function changeText() {
+        let words = prompt("Введите новый текст");
+        setWords(words);
+    }
+
+    return (
+        <div className="App">
+            <Hello words={words} changeText={changeText}/>
+        </div>
+    );
 }
 
 export default App;
