@@ -5,7 +5,7 @@ type PropsType = {
     changeText: () => void
 }
 
-function Hello(props: PropsType) {
+const Hello: React.FC<PropsType> = (props) => {
 
     return (
         <div>

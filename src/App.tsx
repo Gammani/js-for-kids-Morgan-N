@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import './App.css';
-import Hello from "./lessons/Hello";
+import Hello from "./lessons/LessonHello/Hello";
+import {BrowserRouter, Route} from "react-router-dom";
+import Header from "./components/Header/Header";
+import NavBar from "./components/NavBar/NavBar";
+import Inter from "./lessons/Inter/Inter";
 
 
-function App() {
+const App: React.FC = () => {
 
     let [words, setWords] = useState<string | null>("Hello World!");
 
@@ -14,9 +18,17 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <Hello words={words} changeText={changeText}/>
-        </div>
+        <BrowserRouter>
+            <div className={"app-wrapper"}>
+                <Header/>
+                <NavBar/>
+                <div className={"app-wrapper-content"}>
+                    <Route path={"/LessonHello"} render={() => <Hello
+                        words={words} changeText={changeText}/>}/>
+                    <Route path={"/LessonInter"} render={() => <Inter/>}/>
+                </div>
+            </div>
+        </BrowserRouter>
     );
 }
 

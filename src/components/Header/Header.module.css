@@ -1,0 +1,6 @@
+.header {
+    grid-area: h;
+    background-color: aqua;
+    padding-top: 5px;
+    font-size: 30px;
+}
